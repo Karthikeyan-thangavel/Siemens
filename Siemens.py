@@ -11,9 +11,10 @@ sh=nm.random.randint(9,18,10)
 sm=nm.random.randint(0,60,10)
 ss=nm.random.randint(0,60,10)
 
-eh=nm.random.randint(sh,18,10)
-em=nm.random.randint(0,60,10)
-es=nm.random.randint(0,60,10)
+
+eh=[nm.random.randint(i,18) for i in sh]
+em=[nm.random.randint(i,60) for i in sm]
+es=[nm.random.randint(i,60) for i in ss]
 
 s1=[]
 e1=[]
@@ -25,5 +26,7 @@ for i in range(10):
 s=pd.Series(s1,index=el)
 e=pd.Series(e1,index=el)
 
-df=pd.DataFrame({"Start_time":s,"End_time":e,"x":x,"y":y})
+df=pd.DataFrame({"start":s,"end":e,"x":x,"y":y})
 print(df)
+
+print(df["end"]-df["start"])
